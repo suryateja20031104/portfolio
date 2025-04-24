@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surya Teja Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a42ac07912.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        
+:root {
+    --main-color: #4C84FF;
+    --primary-bg-color: #fff;
+    --secondary-bg-color: #eee;
+    --primary-text-color: #222;
+    --secondary-text-color: #666;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .3s cubic-bezier(.38, 1.15, .7, 1.12);
+}
+
+*::selection {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+    width: 1.3rem;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--secondary-bg-color);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+body {
+    background: var(--secondary-bg-color);
+}
+
+body.dark-theme {
+    --primary-bg-color: #252C48;
+    --secondary-bg-color: #171C32;
+    --primary-text-color: #fff;
+    --secondary-text-color: #eee;
+}
+
+section {
+    min-height: 100vh;
+    padding: 1rem;
+    padding: 0 8%;
+}
+
+.btn {
+    display: inline-block;
+    padding: .9rem 3.5rem;
+    font-size: 2rem;
+    background: none;
+    color: #fff;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    margin-top: 1rem;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+    border: .2rem solid var(--main-color);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .5rem;
+    background: var(--main-color);
+    height: 85%;
+    width: 95%;
+    z-index: -1;
+    transition: .2s linear;
+}
+
+.btn:hover:before {
+    top: 100%;
+    transform: translate(-50%, 100%);
+}
+
+.btn:hover {
+    color: var(--primary-text-color);
+}
+
+.heading {
+    font-size: 5rem;
+    color: var(--primary-text-color);
+    text-align: center;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.heading span {
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+#menu {
+    font-size: 2rem;
+    background: var(--main-color);
+    color: #fff;
+    border-radius: 5rem;
+    height: 5rem;
+    width: 5rem;
+    text-align: center;
+    line-height: 5rem;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#menu.fa-times {
+    transform: rotate(-180deg);
+}
+
+.navbar {
+    position: fixed;
+    top: 2.0rem;
+    right: 2.5rem;
+    padding: 1.1rem 2rem;
+    padding-right: 4rem;
+    z-index: 999;
+    border: .2rem solid var(--main-color);
+    border-radius: 1000px;
+    background: var(--primary-bg-color);
+    opacity: 0;
+    transform-origin: top right;
+    transform: scale(0);
+}
+
+.navbar.nav-toggle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.navbar a {
+
+    font-size: 2rem;
+    padding: 0.3rem;
+    padding-right: 1rem;
+    color: var(--primary-text-color);
+}
+
+@media (max-width: 799px) {
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        padding: 1rem;
+        padding-right: 7rem;
+
+    }
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+    transform: translateX(1rem);
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.home .image {
+    flex: 1 1 30rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.home .image img {
+    height: 50rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    border-top: 3rem solid var(--primary-bg-color);
+    border-right: 3rem solid var(--primary-bg-color);
+    border-bottom: 3rem solid var(--main-color);
+    border-left: 3rem solid var(--main-color);
+    border-radius: .5rem;
+}
+
+.home .content {
+    flex: 1 1 40rem;
+    padding: 1rem;
+}
+
+
+.home .content .hello {
+    background: #4c84ff;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 3px 10px;
+    position: relative;
+    line-height: 26px;
+}
+
+.home .content .hello::after {
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 5px;
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-left: 10px solid #4c84ff;
+    border-bottom: 10px solid transparent;
+}
+
+.home .content h3 {
+    color: var(--primary-text-color);
+    font-size: 5rem;
+    margin-top: 20px;
+}
+
+
+
+.home .content h3 span {
+    color: var(--main-color);
+}
+
+.type {
+    display: inline-block;
+
+    vertical-align: bottom;
+}
+
+h4 {
+    font-size: 29px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: var(--primary-text-color);
+}
+
+.type>span {
+    color: #0da6cc;
+    display: grid;
+    overflow: hidden;
+    height: 1.2em;
+}
+
+.type span span {
+    width: 0%;
+    max-width: max-content;
+    overflow: hidden;
+    height: inherit;
+    word-break: break-all;
+    animation:
+        c 0.5s infinite steps(1),
+        t 2s linear infinite alternate,
+        m 16s steps(4) infinite;
+}
+
+.type span span:before {
+    content: " ";
+    display: inline-block;
+}
+
+@keyframes t {
+
+    90%,
+    100% {
+        width: 100%
+    }
+}
+
+@keyframes c {
+
+    0%,
+    100% {
+        box-shadow: 5px 0 0 #0000
+    }
+
+    50% {
+        box-shadow: 5px 0 0 white
+    }
+}
+
+@keyframes m {
+    100% {
+        transform: translateY(-400%)
+    }
+}
+
+.home .content p {
+    padding: 1rem 0;
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+.about .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .row .box {
+    flex: 1 1 40rem;
+    background-color: var(--primary-bg-color);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: .5rem 1.5rem;
+    margin: 1.5rem;
+}
+
+.about .row .box .title {
+    color: var(--primary-text-color);
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
+
+.about .row .box .progress {
+    padding: 1rem 0;
+}
+
+.about .row .box .progress h3 {
+    font-size: 1.7rem;
+    color: var(--secondary-text-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.about .row .box .progress .bar {
+    height: 2.5rem;
+    border-radius: .5rem;
+    border: .2rem solid var(--main-color);
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+.about .row .box .progress .bar span {
+    height: 100%;
+    border-radius: .3rem;
+    background-color: var(--main-color);
+    display: block;
+}
+
+.about .row .box:nth-child(1) .progress:nth-child(2) .bar span {
+    width: 90%;
+}
+
+.about .row .box:nth-child(1) .progress:nth-child(3) .bar span {
+    width: 85%;
+}
+
+.about .row .box:nth-child(1) .progress:nth-child(4) .bar span {
+    width: 85%;
+}
+
+.about .row .box:nth-child(1) .progress:nth-child(5) .bar span {
+    width: 75%;
+}
+
+.about .row .box:nth-child(2) .progress:nth-child(2) .bar span {
+    width: 85%;
+}
+
+.about .row .box:nth-child(2) .progress:nth-child(3) .bar span {
+    width: 80%;
+}
+
+.about .row .box:nth-child(2) .progress:nth-child(4) .bar span {
+    width: 65%;
+}
+
+.about .row .box:nth-child(2) .progress:nth-child(5) .bar span {
+    width: 60%;
+}
+
+.about .row .box .exp-box {
+    padding: 0 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border-left: .2rem solid var(--main-color);
+    position: relative;
+}
+
+.about .row .box .exp-box h3 {
+    color: var(--main-color);
+    font-size: 2rem;
+}
+
+.about .row .box .exp-box p {
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.about .row .box .exp-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    background: var(--main-color);
+}
+
+.about .download {
+    background: var(--primary-bg-color);
+    border-radius: .5rem;
+    text-align: center;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem;
+    padding-bottom: 3rem;
+    margin: 1rem;
+}
+
+.services .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.services .box-container .box {
+    background: var(--primary-bg-color);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    margin: 1rem;
+    padding: 1rem;
+    width: 35rem;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+}
+
+.services .box-container .box .number {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 2.5rem;
+    color: var(--primary-text-color);
+}
+
+.services .box-container .box img {
+    height: 7rem;
+    width: 7rem;
+    margin: 1rem;
+}
+
+.services .box-container .box h3 {
+    font-size: 2rem;
+    color: var(--main-color);
+}
+
+.services .box-container .box p {
+    font-size: 1.5rem;
+    color: var(--secondary-text-color);
+    padding: 1rem;
+}
+
+.services .box-container .box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    clip-path: circle(25% at 0 0);
+    opacity: .1;
+    transition: .3s;
+}
+
+.services .box-container .box:hover::before {
+    clip-path: circle(100%);
+}
+
+.portfolio .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.portfolio .button-container .btn {
+    margin: 1rem;
+    cursor: pointer;
+}
+
+.portfolio .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+}
+
+.portfolio .image-container .box {
+    width: 35rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    height: 25rem;
+    position: relative;
+    border: 1.5rem solid var(--primary-bg-color);
+    cursor: pointer;
+}
+
+.portfolio .image-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.portfolio .image-container .box .info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--primary-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: .9;
+    transform: scale(0);
+}
+
+.portfolio .image-container .box:hover .info {
+    transform: scale(1);
+}
+
+.portfolio .image-container .box .info h3 {
+    font-size: 2.5rem;
+    color: var(--primary-text-color);
+}
+
+.blog .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.blog .box-container .box {
+    width: 33rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    margin: 1.5rem;
+    background: var(--primary-bg-color);
+    overflow: hidden;
+}
+
+.blog .box-container .box img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.blog .box-container .box .content {
+    padding: 1.5rem;
+}
+
+.blog .box-container .box .content .info {
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    text-align: center;
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--primary-text-color);
+    background: var(--secondary-bg-color);
+    padding: 1rem;
+    margin-top: -4rem;
+    margin-bottom: 1rem;
+}
+
+.blog .box-container .box .content .info i {
+    color: var(--main-color);
+    padding: 0 1rem;
+}
+
+.blog .box-container .box .content .title {
+    color: var(--primary-text-color);
+    display: block;
+    font-size: 2.5rem;
+    padding: .5rem 0;
+}
+
+.blog .box-container .box .content .title:hover {
+    text-decoration: underline;
+    color: var(--main-color);
+}
+
+.blog .box-container .box .content p {
+    color: var(--secondary-text-color);
+    padding: .5rem 0;
+    font-size: 1.5rem;
+}
+
+.contact .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact .row form {
+    flex: 1 1 40rem;
+    background: var(--primary-bg-color);
+    padding: 2rem;
+    margin: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+}
+
+.contact .row .map {
+    flex: 1 1 40rem;
+    margin: 1rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    border: 2rem solid var(--primary-bg-color);
+    width: 100%;
+}
+
+.contact .row form .inputBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact .row form input,
+.contact .row form textarea {
+    padding: 1rem 0;
+    margin: 1rem 0;
+    font-size: 1.7rem;
+    border-bottom: .1rem solid var(--secondary-text-color);
+    text-transform: none;
+    background: none;
+    color: var(--main-color);
+    width: 100%;
+}
+
+.contact .row form input::placeholder,
+.contact .row form textarea::placeholder {
+    text-transform: capitalize;
+    color: var(--secondary-text-color);
+}
+
+.contact .row form input:focus,
+.contact .row form textarea:focus {
+    border-color: var(--main-color);
+}
+
+.contact .row form .inputBox input {
+    width: 49%;
+}
+
+.contact .row form textarea {
+    height: 15rem;
+    resize: none;
+}
+
+.contact .row form .btn {
+    cursor: pointer;
+}
+
+.contact .box-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact .box-container .box {
+    flex: 1 1 30rem;
+    margin: 1rem;
+    padding: 3rem 1rem;
+    background: var(--primary-bg-color);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.contact .box-container .box i {
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    border-radius: 50%;
+    font-size: 3rem;
+    background: var(--secondary-bg-color);
+    color: var(--main-color);
+}
+
+.contact .box-container .box h3 {
+    color: var(--primary-text-color);
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+
+.contact .box-container .box p {
+    font-size: 1.5rem;
+    color: var(--secondary-text-color);
+}
+
+.footer {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-text-color);
+    background: var(--primary-bg-color);
+    margin-top: 1rem;
+}
+
+.footer span {
+    color: var(--main-color);
+}
+
+.llinks {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#theme-toggler {
+    position: fixed;
+    top: 8.5rem;
+    right: 2rem;
+    z-index: 998;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5rem;
+}
+
+#theme-toggler.fa-sun {
+    transform: rotate(-180deg);
+}
+
+
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    section {
+        padding: 1rem;
+        padding: 0 3%;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .home .image img {
+        height: auto;
+        width: 100%;
+    }
+
+}
+
+@media (max-width:400px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .services .box-container .box {
+        width: 100%;
+    }
+
+    .portfolio .image-container .box {
+        width: 100%;
+    }
+
+    .blog .box-container .box {
+        width: 100%;
+    }
+
+    .contact .row form .inputBox input {
+        width: 100%;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#portfolio">portfolio</a>
+            <a href="#contact">contact</a>
+        </nav>
+        <div id="theme-toggler" class="fas fa-moon"></div>
+    </header>
+
+
+
+    <section class="home" id="home">
+        <div class="image">
+            <a href="https://ibb.co/QMYt0vv"><img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701624290/ukmlvzx8isi9fs8zvfxd.jpg" border="0"></a>
+        </div>
+        <div class="content">
+            <span class="hello">hello</span>
+            <h3> I'M <span>Bugatha Surya Teja</span> </h3>
+
+            <h4>I am a <span class="type">
+                    <span>
+                        <span>software Developer</span>
+                        <span>Web Designer</span>
+                        <span>Coder</span>
+                        <span>Pvt BlockChain Developer</span>
+                    </span>
+                </span>
+            </h4>
+
+            <p>Full Stack Developer Intern at Praying Mantis | Upcoming Amazon ML Intern | EX - Frontend Developer at Equal | Knows C, Java, Python, Front End Development, Basics of Ml and DS| Leetcode Top 35.71% | CCBPian at NxtWave</p>
+            <a href="#about" class="btn">about me</a>
+        </div>
+
+    </section>
+    <section class="about" id="about">
+        <h1 class="heading"> about <span>me</span> </h1>
+        <div class="row">
+            <div class="box">
+                <h3 class="title">coding skills</h3>
+                <div class="progress">
+                    <h3> html css js<span>90%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> sqlite <span>85%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> node.js <span>85%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> react.js <span>75%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3 class="title">professional skills</h3>
+                <div class="progress">
+                    <h3> web design <span>85%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> web development <span>80%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> Machine learning <span>75%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+                <div class="progress">
+                    <h3> BlockChain <span>60%</span> </h3>
+                    <div class="bar"><span></span></div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3 class="title">experience</h3>
+                <div class="exp-box">
+                    <h3>Full stack Developer at Praying Mantis</h3>
+                    <p>I specialize in diverse development tasks, particularly excelling in prototype creation, fostering seamless teamwork to drive success in enterprise software projects. My focus on collaboration ensures effective coordination within the project team to achieve our shared objectives.</p>
+                </div>
+                <div class="exp-box">
+                    <h3>Amazon ML Intern</h3>
+                    <p>Amazon ML intern immersed in supervised learning, neural networks, dimensionality reduction, probabilistic models, sequential learning, and causal inference under top scientists' mentorship.</p>
+                </div>
+                <div class="exp-box">
+                    <h3>front end developer at Equal</h3>
+                    <p>Responsible for developing interactive and dynamic frontend applications using popular tools, ensuring engaging and seamless user experiences</p>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3 class="title">education</h3>
+                <div class="exp-box">
+                    <h3>NxtWave</h3>
+                    <p>At NxtWave’s CCBP 4.0 Academy, I’m currently learning full-stack development with a specialisation in 4.0 technologies. In love with the coding challenges and hands-on projects. With Industry’s first ever IRC 4.0, getting ready to take on new challenges in the tech world.</p>
+                </div>
+                <div class="exp-box">
+                    <h3>Anil Neerukonda Institute Of Technology And Sciences</h3>
+                    <p>Currently enrolled in the third year of a B.Tech program at Anits, specializing in Artificial Intelligence and Machine Learning, exploring the intersections of data science and intelligent systems.</p>
+                </div>
+                <div class="exp-box">
+                    <h3>Sri Chaitanya junior college</h3>
+                    <p>Intermediate student at Sri Chaitanya, delving into foundational subjects with a focus on preparing for future academic pursuits, particularly in the realm of technology and sciences.</p>
+                </div>
+                <div class="exp-box">
+                    <h3>Priyankas Vidyodaya high school</h3>
+                    <p>Completed schooling at PVHS with a concentration in mathematics and science, fostering a strong background in analytical reasoning and scientific exploration</p>
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <section class="portfolio" id="portfolio">
+
+        <h1 class="heading"> <span>my</span> portfolio </h1>
+
+        <div class="button-container">
+            <div class="btn" data-filter="all">all</div>
+            <div class="btn" data-filter="design">design</div>
+            <div class="btn" data-filter="code">code</div>
+            <div class="btn" data-filter="website">website</div>
+        </div>
+
+        <div class="image-container">
+
+            <div class="box design">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701624658/Screenshot_2023-12-03_230037_dveglq.png" alt="">
+                <div class="info">
+                    <a href="https://vidtube.ccbp.tech/" target="_blank">
+                        <h3>Youtube Clone</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box design">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701624793/Screenshot_2023-12-03_230246_kodzmf.png" alt="">
+                <div class="info">
+                    <a href="https://suryarulz.ccbp.tech/" target="_blank">
+                        <h3>Amazon Prime Clone</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box design">
+                <img src="https://res.cloudinary.com/dgl7uevnl/image/upload/v1701773724/Screenshot_2023-12-05_162028_dwkkin.png" alt="">
+                <div class="info">
+                    <a href="https://suryajobappin.ccbp.tech/login" target="_blank">
+                        <h3>Naukari Clone</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box design">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625095/Screenshot_2023-12-03_230747_plasre.png" alt="">
+                <div class="info">
+                    <a href="https://suryatrendznxt.ccbp.tech/" target="_blank">
+                        <h3>Flipkart Clone</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box brand">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625880/Screenshot_2023-12-03_232106_kutysk.png" alt="">
+                <div class="info">
+                    <a href="https://suryagenaichat.ccbp.tech/" target="_blank">
+                        <h3>Chatgpt Lite</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box code">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625486/Screenshot_2023-12-03_231421_wvc8y6.png" alt="">
+                <div class="info">
+                    <a href="https://suryaipl123.ccbp.tech/" target="_blank">
+                        <h3>IPL Dashboard</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box code">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625670/Screenshot_2023-12-03_231718_worklz.png" alt="">
+                <div class="info">
+                    <a href="https://suryamanpass1.ccbp.tech/" target="_blank">
+                        <h3>Password Manager</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box website">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625740/Screenshot_2023-12-03_231846_vxcihs.png" alt="">
+                <div class="info">
+                    <a href="https://suryaclock123.ccbp.tech/" target="_blank">
+                        <h3>Digital Timer</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box brand">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701625973/Screenshot_2023-12-03_232235_bkx1k2.png" alt="">
+                <div class="info">
+                    <a href="https://suryagame08.ccbp.tech/" target="_blank">
+                        <h3>Matching Game</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="box brand">
+                <img src="https://res.cloudinary.com/dvy5o4qjm/image/upload/v1701626080/Screenshot_2023-12-03_232419_sota9v.png" alt="">
+                <div class="info">
+                    <a href="https://suryaemj.ccbp.tech/" target="_blank">
+                        <h3>Memorize Game</h3>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"> contact <span>me</span> </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-phone"></i>
+                <h3>my number</h3>
+                <p>9346533654</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <h3>my email</h3>
+                <p>suryateja1938102074@gmail.com</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>my address</h3>
+                <p>Visakhapatnam, Andhra Pradesh, india - 530004</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <form action="">
+                <div class="inputBox">
+                    <input type="text" placeholder="name" id="name">
+                    <input type="email" placeholder="email" id="email">
+                </div>
+                <input type="text" placeholder="subject">
+                <textarea name="" id="message" cols="30" rows="10" placeholder="message"></textarea>
+                <button class="btn" onclick="sendmail()" type="button"> send message </button>
+            </form>
+
+            <iframe class="map" src="https://www.google.com/maps/embed/v1/place?q=Calvary+Baptist+Church,+South+Jail+Road,+Near+Vivekananda+Statue,+Bangaramma+Metta,+Allipuram,+Visakhapatnam,+Andhra+Pradesh,+India&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+    </section>
+    <div class="footer">
+        <div class="llinks">
+            <div class="box">
+                <a href="https://www.linkedin.com/in/surya-teja-bugatha/" target="_blank">
+                    <i class="fa-brands fa-linkedin  fa-2xl"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://github.com/suryateja20031104?tab=repositories" target="_blank">
+                    <i class="fa-brands fa-github  fa-2xl"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.hackerrank.com/profile/suryateja1938101" target="_blank">
+                    <i class="fa-brands fa-hackerrank  fa-2xl"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://leetcode.com/suryateja1938102074/" target="_blank">
+                    <iconify-icon icon="simple-icons:leetcode" width="40" height="40"></iconify-icon>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/tricky_surya/" target="_blank">
+                    <i class="fa-brands fa-square-instagram  fa-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer">created by <span> Surya Teja </span> | all rights reserved!</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <!-- Check main.js for sendmail function -->
+    <script type="text/javascript" src="main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
